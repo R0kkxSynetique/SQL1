@@ -93,6 +93,10 @@ L'entité `trimester` répertorie les trimestres de l'école. La relation `trime
 
 Ici une relation avec `courses` à été établie pour garder un historique des cours donnés durant les trimestres.
 
+## Spécification MLD
+
+Le MLD doit être établi en fonction du MCD. Cepandant un ajout doit être fait pour les status et les enums. Dans ces cas là, il faut spécifier les valeurs de ces entités dans une table externe. C'est pourquoi les "entité" `people_status_values`, `courses_status_values` et `weekday_enum_values` ont été créées. Elles contiennent les valeurs connues des status et des enums.
+
 ## Autheur
 
 FONTANA Benjamin - <benjamin.fontana@eduvaud.ch>
@@ -101,4 +105,4 @@ Lien du projet: <https://github.com/R0kkxSynetique/SQL1>
 
 > Date de création: 09.10.2023
 >
-> Dernière modification le 09.10.2023
+> Dernière modification le 13.10.2023
