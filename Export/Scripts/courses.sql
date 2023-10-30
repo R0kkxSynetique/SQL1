@@ -1,0 +1,10 @@
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (8, 'at', 'scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin', 6);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (1, 'congue', 'volutpat dui maecenas tristique est et', 3);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (8, 'purus', 'felis ut at dolor quis odio consequat varius', 6);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (6, 'consequat', 'nisi volutpat eleifend donec ut dolor morbi vel lectus', 1);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (8, 'vel', 'elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla', 3);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (2, 'sed', 'lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit', 9);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (5, 'mus', 'ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas', 3);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (6, 'donec', 'tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst', 2);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (9, 'auctor', 'adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus', 1);
+insert into courses (id_course, name, description, courses_status_id_courses_status) values (9, 'quisque', 'eu nibh quisque id justo sit amet sapien', 5);

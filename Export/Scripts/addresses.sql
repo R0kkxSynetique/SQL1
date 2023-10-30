@@ -1,0 +1,10 @@
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (8355142937, '3686 Lakeland Trail', 'Buenlag', '2302', null, 'PH', 'PO Box 18638');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (1331567080, '61194 Washington Road', 'Shajing', null, null, 'CN', '5th Floor');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (9763947149, '7 Valley Edge Way', 'Panganiban', '4806', null, 'PH', 'Apt 1023');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (2615925034, '974 Autumn Leaf Plaza', 'Wanasari Baleran', null, null, 'ID', '12th Floor');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (3898783178, '8 Luster Avenue', 'Cigaluh', null, null, 'ID', 'Room 1901');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (879591143, '1074 Bellgrove Trail', 'Zhourui', null, null, 'CN', 'Apt 1711');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (1113067284, '5860 Mayfield Court', 'Chetian', null, null, 'CN', '18th Floor');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (8095624030, '648 Holy Cross Park', 'Paninggaran', null, null, 'ID', 'Suite 91');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (9823008314, '7003 Macpherson Trail', 'Criciúma', '88800-000', null, 'BR', '13th Floor');
+insert into addresses (id_address, street, locality, postal_code, administrative_area, country, premise) values (6458080709, '345 Mallard Hill', 'Montemor-o-Velho', '3140-253', 'Coimbra', 'PT', 'PO Box 80457');

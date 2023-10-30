@@ -1,0 +1,10 @@
+insert into courses_status (id_courses_status, name) values (10, 'sit');
+insert into courses_status (id_courses_status, name) values (0, 'id');
+insert into courses_status (id_courses_status, name) values (1, 'erat');
+insert into courses_status (id_courses_status, name) values (8, 'in');
+insert into courses_status (id_courses_status, name) values (9, 'neque');
+insert into courses_status (id_courses_status, name) values (1, 'nisl');
+insert into courses_status (id_courses_status, name) values (5, 'in');
+insert into courses_status (id_courses_status, name) values (5, 'at');
+insert into courses_status (id_courses_status, name) values (4, 'lorem');
+insert into courses_status (id_courses_status, name) values (6, 'fusce');

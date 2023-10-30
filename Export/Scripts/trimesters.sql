@@ -1,0 +1,10 @@
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (2233510278, 'odio', '06/08/2076', '10/05/2017', 8);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (1040298611, 'cursus', '11/09/2076', '23/11/2020', 6);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (2538713644, 'ut', '10/09/2055', '08/11/2076', 8);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (2226722484, 'elementum', '23/03/2038', '30/07/2014', 6);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (9513383684, 'vivamus', '24/03/2085', '27/01/2073', 3);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (1694448176, 'turpis', '13/03/2010', '29/10/2039', 3);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (1504463486, 'id', '21/05/2017', '26/05/2020', 4);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (1699090876, 'molestie', '03/09/2051', '04/07/2059', 5);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (1405024131, 'velit', '11/02/2018', '02/08/2032', 8);
+insert into trimesters (id_trimester, name, startdate, enddate, class_id) values (6080491997, 'consectetuer', '10/03/2011', '21/07/2000', 9);

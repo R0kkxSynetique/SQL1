@@ -1,0 +1,10 @@
+insert into rooms (id_room, name) values (1, 'dictumst');
+insert into rooms (id_room, name) values (2, 'eros');
+insert into rooms (id_room, name) values (3, 'in');
+insert into rooms (id_room, name) values (4, 'quis');
+insert into rooms (id_room, name) values (5, 'aenean');
+insert into rooms (id_room, name) values (6, 'erat');
+insert into rooms (id_room, name) values (7, 'in');
+insert into rooms (id_room, name) values (8, 'vitae');
+insert into rooms (id_room, name) values (9, 'nec');
+insert into rooms (id_room, name) values (10, 'auctor');

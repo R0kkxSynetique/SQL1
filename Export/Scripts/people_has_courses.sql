@@ -1,0 +1,10 @@
+insert into people_has_courses (person_id, course_id) values (5, 3);
+insert into people_has_courses (person_id, course_id) values (2, 6);
+insert into people_has_courses (person_id, course_id) values (6, 6);
+insert into people_has_courses (person_id, course_id) values (7, 3);
+insert into people_has_courses (person_id, course_id) values (5, 1);
+insert into people_has_courses (person_id, course_id) values (7, 1);
+insert into people_has_courses (person_id, course_id) values (7, 8);
+insert into people_has_courses (person_id, course_id) values (2, 8);
+insert into people_has_courses (person_id, course_id) values (2, 5);
+insert into people_has_courses (person_id, course_id) values (2, 5);

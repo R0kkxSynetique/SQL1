@@ -1,0 +1,10 @@
+insert into specializations (name, description) values ('Junior Executive', 'eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean');
+insert into specializations (name, description) values ('Senior Financial Analyst', 'risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit');
+insert into specializations (name, description) values ('Payment Adjustment Coordinator', 'montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor');
+insert into specializations (name, description) values ('Compensation Analyst', 'ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor');
+insert into specializations (name, description) values ('Software Engineer III', 'phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla');
+insert into specializations (name, description) values ('Assistant Manager', 'primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin');
+insert into specializations (name, description) values ('Statistician II', 'potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus');
+insert into specializations (name, description) values ('VP Accounting', 'consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi');
+insert into specializations (name, description) values ('Information Systems Manager', 'lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla');
+insert into specializations (name, description) values ('VP Quality Control', 'congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean');

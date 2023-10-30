@@ -1,0 +1,10 @@
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (3, 'Daffie', 6, 9, 4, 1);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (8, 'Kenyon', 6, 10, 9, 4);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (2, 'Christopher', 2, 6, 8, 8);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (5, 'Jemmy', 0, 8, 6, 5);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (6, 'Lodovico', 1, 9, 1, 5);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (10, 'Bernadene', 1, 4, 3, 8);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (7, 'Yoshi', 5, 4, 7, 5);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (10, 'Haskell', 3, 7, 8, 3);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (5, 'Eloise', 3, 10, 1, 5);
+insert into marks (id_mark, name, mark, course_id, trimester_id, person_id) values (10, 'Onofredo', 1, 4, 3, 1);
