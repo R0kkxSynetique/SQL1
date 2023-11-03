@@ -5,9 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema my_db
+-- Create my_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `my_db` DEFAULT CHARACTER SET utf8 ;
+CREATE DATABASE IF NOT EXISTS `my_db` DEFAULT CHARACTER SET utf8 ;
 USE `my_db` ;
 
 -- -----------------------------------------------------
@@ -97,8 +97,8 @@ CREATE TABLE IF NOT EXISTS `my_db`.`people` (
   `IBAN` VARCHAR(60) NULL,
   `class_id` INT NOT NULL,
   `address_id` INT NOT NULL,
-  `specialization_id` INT NOT NULL,
-  PRIMARY KEY (`id_person`, `class_id`, `address_id`, `specialization_id`),
+  `specialization_id` INT NULL,
+  PRIMARY KEY (`id_person`, `class_id`, `address_id`),
   UNIQUE INDEX `unique` (`firstname` ASC, `lastname` ASC, `birthdate` ASC, `email` ASC) VISIBLE,
   INDEX `fk_people_classes1_idx` (`class_id` ASC) VISIBLE,
   INDEX `fk_people_addresses1_idx` (`address_id` ASC) VISIBLE,
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `my_db`.`trimesters` (
   `enddate` DATE NOT NULL,
   `class_id` INT NOT NULL,
   PRIMARY KEY (`id_trimester`, `class_id`),
-  UNIQUE INDEX `unique` (`name` ASC, `startdate` ASC, `enddate` ASC) VISIBLE,
+  UNIQUE INDEX `unique` (`name` ASC, `startdate` ASC, `enddate` ASC, `class_id` ASC) VISIBLE,
   INDEX `fk_trimesters_classes1_idx` (`class_id` ASC) VISIBLE,
   CONSTRAINT `fk_trimesters_classes1`
     FOREIGN KEY (`class_id`)
@@ -185,7 +185,7 @@ DROP TABLE IF EXISTS `my_db`.`marks` ;
 CREATE TABLE IF NOT EXISTS `my_db`.`marks` (
   `id_mark` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(60) NOT NULL,
-  `mark` INT NOT NULL,
+  `mark` DECIMAL(4,2) NOT NULL,
   `course_id` INT NOT NULL,
   `trimester_id` INT NOT NULL,
   `person_id` INT NOT NULL,
@@ -281,8 +281,8 @@ DROP TABLE IF EXISTS `my_db`.`courses_has_trimesters` ;
 CREATE TABLE IF NOT EXISTS `my_db`.`courses_has_trimesters` (
   `course_id` INT NOT NULL,
   `trimester_id` INT NOT NULL,
-  `start_time` DATETIME NOT NULL,
-  `end_time` DATETIME NOT NULL,
+  `start_time` TIME NOT NULL,
+  `end_time` TIME NOT NULL,
   `weekday` ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') NOT NULL,
   PRIMARY KEY (`course_id`, `trimester_id`),
   INDEX `fk_courses_has_trimesters_trimesters1_idx` (`trimester_id` ASC) VISIBLE,
@@ -295,6 +295,29 @@ CREATE TABLE IF NOT EXISTS `my_db`.`courses_has_trimesters` (
   CONSTRAINT `fk_courses_has_trimesters_trimesters1`
     FOREIGN KEY (`trimester_id`)
     REFERENCES `my_db`.`trimesters` (`id_trimester`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `my_db`.`courses_has_specializations`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `my_db`.`courses_has_specializations` ;
+
+CREATE TABLE IF NOT EXISTS `my_db`.`courses_has_specializations` (
+  `course_id` INT NOT NULL,
+  `specialization_id` INT NOT NULL,
+  PRIMARY KEY (`course_id`, `specialization_id`),
+  INDEX `fk_courses_has_specializations_specializations1_idx` (`specialization_id` ASC) VISIBLE,
+  INDEX `fk_courses_has_specializations_courses1_idx` (`course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_courses`
+    FOREIGN KEY (`course_id`)
+    REFERENCES `my_db`.`courses` (`id_course`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_specializations`
+    FOREIGN KEY (`specialization_id`)
+    REFERENCES `my_db`.`specializations` (`id_specialization`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

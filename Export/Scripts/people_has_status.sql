@@ -1,10 +1,23 @@
-insert into people_has_status (person_id, status_id) values (2, 1);
-insert into people_has_status (person_id, status_id) values (1, 4);
-insert into people_has_status (person_id, status_id) values (4, 4);
-insert into people_has_status (person_id, status_id) values (1, 9);
-insert into people_has_status (person_id, status_id) values (8, 1);
-insert into people_has_status (person_id, status_id) values (3, 4);
-insert into people_has_status (person_id, status_id) values (3, 8);
-insert into people_has_status (person_id, status_id) values (2, 2);
-insert into people_has_status (person_id, status_id) values (2, 8);
-insert into people_has_status (person_id, status_id) values (4, 1);
+INSERT INTO
+    people_has_status (person_id, status_id)
+VALUES
+    (1, 1),
+    (2, 1),
+    (3, 2),
+    (4, 2),
+    (5, 2),
+    (6, 2),
+    (7, 2),
+    (8, 2),
+    (9, 2),
+    (10, 2),
+    (1, 3),
+    (2, 3),
+    (3, 3),
+    (4, 3),
+    (5, 3),
+    (6, 3),
+    (7, 3),
+    (8, 3),
+    (9, 3),
+    (10, 3);

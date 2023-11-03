@@ -1,10 +1,10 @@
-insert into people_status (id_people_status, name) values (2, 'Nathanial');
-insert into people_status (id_people_status, name) values (1, 'Lotty');
-insert into people_status (id_people_status, name) values (9, 'Jeannette');
-insert into people_status (id_people_status, name) values (7, 'Orelie');
-insert into people_status (id_people_status, name) values (7, 'Alexia');
-insert into people_status (id_people_status, name) values (6, 'Vickie');
-insert into people_status (id_people_status, name) values (7, 'Tania');
-insert into people_status (id_people_status, name) values (6, 'Murdoch');
-insert into people_status (id_people_status, name) values (9, 'Christiane');
-insert into people_status (id_people_status, name) values (1, 'Leonid');
+INSERT INTO
+    people_status (id_people_status, name)
+VALUES
+    (1, 'prof'),
+    (2, 'élève'),
+    (3, 'en cours'),
+    (4, 'arrêt prolongé'),
+    (5, 'retraite'),
+    (6, 'fini'),
+    (7, 'arrêté');
