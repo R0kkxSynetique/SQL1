@@ -1,7 +1,9 @@
-<br />
+<br/>
 <div align="center">
-  <h1 align="center">Projet SQL</h1>
+  <h1 align="center">Projet SQL1</h1>
+  <h6 align="center">Benjamin FONTANA</h6>
 </div>
+<br/>
 
 # A propos du projet
 
@@ -28,6 +30,8 @@ Les salles de l'établissement sont répertoriées dans la base de données. Ell
 
 Les classes sont composées d'élèves et d'un seul professeur principal. Les classes sont toujours dans la même salle et nous devons avoir un historique des salles de classes de chaques classes au cours des années.
 
+<br/>
+
 ## Elèves
 
 Un élève est identifié par un `nom`, un `prénom`, une `date de naissance`, un `email`, un `téléphone`, une `adresse` et un `status` (En cours, Fini, Arrêté). Cela dit le status ne **doit pas** être `redoublant`. Cepedant si un élève arrête ou à fini sa formation, les notes de celui-ci sont conservées. Tout élève appartient à une seul branche (DEV, SYS, etc...) et à une seul classe. Il peut cependant changer de branche en cours de formation. Un ancien élève peut devenir prof, dans ce cas l'élève devient un prof mais concerve ses notes.
@@ -48,63 +52,240 @@ Les notes sont composées d'un `nom`, d'une `valeur` de 0 à 6 avec un coefficia
 
 Les fillières de l'établissement doivent être renseignées et sont sujettes à changement. Les seules personnes qui seront répertoriée dans la base de données sont les élèves et les profs.
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 # Explications du MCD
 
 Dans ce chapitre, vous trouverez les explications des choix de conception de la base de données. Les choix sont expliqués par entité.
 
-## status
+## people_status
 
-L'entité `status` contient les status que les personnes pourront avoir. On sait déjà que les status suivants devront y apparaitre: `élève`, `prof`, `en cours`, `arrêt prolongé`, `retraite`, `fini`, `arrêté`. Cependant, il est possible que d'autres status apparaissent, c'est pourquoi il est important de les stocker dans une table. À noté qu'aucun status `redoublant` n'a été mentionné puisque le client ne souhaite pas que les élèves ayent un tel status.
+![people_status_entity](image.png)
+
+L'entité `people_status` contient les status que les personnes pourront avoir. On sait déjà que les status suivants devront y apparaitre: `élève`, `prof`, `en cours`, `arrêt prolongé`, `retraite`, `fini`, `arrêté`. Cependant, il est possible que d'autres status apparaissent, c'est pourquoi il est important de les stocker dans une table. À noté qu'aucun status `redoublant` n'a été mentionné puisque le client ne souhaite pas que les élèves ayent un tel status.
 
 ## people
 
+![people_entity](image-1.png)
+
 L'entité `people` répertorie les profs et les élèves. Ils ont tout en commun sauf l'IBAN. C'est pourquoi ils ont été regroupé en une seule entité. 
 
-La relation entre `people` et `status` est une relation 1,n car une personne doit avoir au moins un status mais en aura sûrement plusieurs puisque nous avons un status élève ou prof plus leur status effectif(en cours, arrêt prolongé, etc...).
+![people_people_status](image-13.png)
+
+La relation entre `people` et `people_status` est une relation 1,n car une personne doit avoir au moins un status mais en aura sûrement plusieurs puisque nous avons un status élève ou prof plus leur status effectif(en cours, arrêt prolongé, etc...).
 
 ## addresses
+
+![addresses_entity](image-2.png)
 
 L'entité `addresses` n'a rien de spécial. Elle contient les adresses des personnes. Dans le cas où une adresse n'est pas liée a une personne, il faudra la supprimer. Ici un choix à été fait, en accord avec le client, pour que les personnes n'aie qu'une seule adresse.
 
 ## specialization
 
+![specialization_entity](image-3.png)
+
 Cette entité répertories les branches de l'école. Elle contiendra pour l'instant les branches `DEV` et `SYS`. Cependant, il est possible que d'autres branches apparaissent, c'est pourquoi il est important de les stocker dans une table. Il y'a ausi la possibilité de renseigner une description de la branche si nécaissaire.
 
-La relation entre `specialization` et `people` est une relation particulière. Un élève doit avoir une branche mais un prof non cela explique le 0,1 du côté people. Du côté `specialization` il y'a une relation 0,n qui s'explique par le fait qu'une branche peut être assignée a plusieur élève ou à aucun.
+![specialization_people](image-11.png)
+
+La relation entre `specialization` et `people` est une relation particulière. Un élève doit avoir une branche mais un prof non cela explique le 0,1 du côté `people`. Du côté `specialization` il y'a une relation 0,n qui s'explique par le fait qu'une branche peut être assignée a plusieur élève ou à aucun.
+
+![specialization_courses](image-12.png)
 
 La relation entre `specialization` et `courses` permet de répertorier les cours liés aux branches. Cependant un cours peut ne pas être liée a une branche ou à plusieurs, c'est pourquoi la relation est 0,n. De même pour la spécialisation.
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 ## courses
+
+![courses_entity](image-4.png)
 
 L'entité `courses` répertorie les cours de l'école. La relation passant par le verbe `to teach` est spécifique aux profs. En effet, un prof peut enseigner plusieurs cours et un cours peut être enseigné par plusieurs profs. Cependant, un cours ne peut pas être enseigné par plusieurs profs en même temps. Mais un cours peut ne pas être donné c'est pourquoi la relation est 0,n. De l'autre côté, la relation 0,n se justifie puisqu'un élève ne donne pas de cours.
 
-On peut constater que l'entité `courses` contient un champ `status`. Ce champ permet de savoir si le cours est donné ou non. Il n'a pas été externalisé dans une table externe car il n'y a que quatre status possible: `obselète`, `en cours`, `en révision` et `à réviser` .
+![courses_courses_status](image-14.png)
+
+On peut constater que l'entité `courses` est lié à l'entité `courses_status`. Ce lien permet de savoir si le cours est donné ou non. Il a été externalisé dans une table externe car cela permettera de les mettre à jour au besoin. Acctuellement, la table possède ces quatres valeurs: `obselète`, `en cours`, `en révision` et `à réviser` .
+
+![courses_marks](image-10.png)
 
 la relation `courses` et `marks` permet de répertorier les notes de chaques cours. Ici nous avons une relation 0,n car un cours peut autant ne pas avoir de notes puisqu'il n'est pas donné ou peut en avoir plusieurs. De l'autre côté une relation 1,1 est nécessaire puisqu'une note doit être liée à un cours.
 
+<br/>
+<br/>
+
 ## marks
+
+![marks_entity](image-5.png)
 
 L'entité `marks` répertorie les notes. La relation `courses` et `marks` à été expliquée dans le [chapitre précédent](#courses).
 
+![marks_people_relation](image-9.png)
+
 La relation `marks` et `people` permet de répertorier les notes des élèves. Ici nous avons une relation 0,n car un élève peut ne pas avoir de notes ou en avoir plusieurs. De l'autre côté une relation 1,1 est nécessaire puisqu'une note doit être liée à un élève.
+
+![trimester_marks_relation](image-8.png)
 
 Et finalement la dernière relation des notes est celle `trimester` et `marks`. Dans cette relation, nous avons une relation 0,n car un trimestre peut ne pas avoir de notes ou en avoir plusieurs. De l'autre côté une relation 1,1 est nécessaire puisqu'une note doit être liée à un trimestre.
 
+<br/>
+<br/>
+
 ## trimester
+
+![trimester_entity](image-6.png)
 
 L'entité `trimester` répertorie les trimestres de l'école. La relation `trimester` et `marks` à été expliquée dans le [chapitre précédent](#marks).
 
+![trimester_courses_relation](image-15.png)
+
 Ici une relation avec `courses` à été établie pour garder un historique des cours donnés durant les trimestres.
+
+## classes
+
+![classes_entity](image-7.png)
+
+L'entité `classes` répertorie les classes de l'école. La relation `classes` et `people` est une double relation. En effet, une classe est composée d'élèves et d'un professeur principal. Cependant, un professeur peut être maître de classe mais ne peut pas en avoir plusieurs. C'est pourquoi la relation est 1,1 du côté `classes` -> `to be responsible` et 0,n de son sutre côté. Du côté `classes` -> `to contains` la relation est 0,n car une classe peut ne pas avoir d'élèves ou en avoir plusieurs et nous pouvons donc garder un historique de celles-ci. 
+
+# Versions du MCD
+
+## Version 1-3
+
+Les versions 1 à 3 n'ont pas été sauvegardées mais n'étaient que des prototypes non fonctionnels.
+
+## Version 4
+
+![MCD version 4](./MCD/SQL1_MCD_FONTANA_Benjamin_V04.png)
+
+Cette version est la première version fonctionnelle. Une entité `status` à été créee pour l'entité `people`.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Version 5
+
+![MCD version 5](./MCD/SQL1_MCD_FONTANA_Benjamin_V05.png)
+
+Dans la version 5, l'entité `status` à été renomée en `people_status` et une entité `courses_status` à été créee pour l'entité `courses` afin de généraliser la structure.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Version 6
+
+![MCD version 6](./MCD/SQL1_MCD_FONTANA_Benjamin_V06.png)
+
+Dans la version 6, les relations entre `people` et `classes` ont été modifiées pour permettre de garder un historique des classes des élèves et de pouvoir résoudre les problèmes de génération du à une dépendence récursive.
 
 # Spécification MLD
 
 Le MLD doit être établi en fonction du MCD. Cepandant un ajout doit être fait pour les status et les enums. Dans ces cas là, il faut spécifier les valeurs de ces entités dans une table externe. C'est pourquoi les "entité" `people_status_values`, `courses_status_values` et `weekday_enum_values` ont été créées. Elles contiennent les valeurs connues des status et des enums.
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+# Versions du MLD
+
+## Version 1
+
+![MLD version 1](./MLD/SQL1_MLD_FONTANA_Benjamin_V01.png)
+
+Dans cette version, le MLD est la traduction directe de la version 5 du MCD. Les entités `people_status_values`, `courses_status_values` et `weekday_enum_values` ont été créées pour spécifier les valeurs des status et des enums.
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Version 2
+
+![MLD version 2](./MLD/SQL1_MLD_FONTANA_Benjamin_V02.png)
+
+Dans cette version, le MLD est la traduction directe de la version 6 du MCD. Tout comme la version 1, les entités `people_status_values`, `courses_status_values` et `weekday_enum_values` ont été créées pour spécifier les valeurs des status et des enums.
+
+<br/>
+<br/>
+<br/>
+
+## people_status_values
+
+![people_status_values](image-16.png)
+
+## courses_status_values
+
+![courses_status_values](image-17.png)
+
+## weekday_enum_values
+
+![weekday_enum_values](image-18.png)
+
+<br/>
+<br/>
+
 # Scripts SQL
 
-## database_creation.sql
+## db_full_creation.sql
 
 Ce script permet de créer la base de données. Il contient les instructions SQL pour créer la base de données, les tables, les relations et les inserts permettant de peupler la base de données.
+
+## db_creation.sql
+
+Ce script permet de créer la base de données. Il contient les instructions SQL pour créer la base de données et les tables.
+
+## db_insert.sql
+
+Ce script permet de peupler la base de données. Il contient les instructions SQL pour insérer des données dans les tables.
 
 ## test.sql
 
@@ -118,4 +299,4 @@ Lien du projet: <https://github.com/R0kkxSynetique/SQL1>
 
 > Date de création: 09.10.2023
 >
-> Dernière modification le 04.11.2023
+> Dernière modification le 23.11.2023
